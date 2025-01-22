@@ -30,7 +30,7 @@ if (arguments.includes('--help')) {
         customize their password. The default password, if not
         specified by the user, will be 8 lowercase letters. If the 
         user would like to add numbers to their password, they 
-        must add the --numbers flag. See usage below.
+        must add the --numbers flag. See usage below!
     
         Usage: node index.js [options]
 
@@ -41,7 +41,7 @@ if (arguments.includes('--help')) {
         --numbers          Include numbers in the password 
 
         --help             Opens this menu
-        
+
         Example:
         
         node index.js --length 12 --numbers
