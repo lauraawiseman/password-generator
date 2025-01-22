@@ -4,6 +4,23 @@ const arguments = process.argv.slice(2);
 // Default password conditions
 let length = 8;
 
+arguments.forEach((arg, index) => {
+  if (arg === '--length') {
+    // Index + 1 reads number after --length,
+    const value = parseInt(arguments[index + 1]);
+
+    // Check if value after --length is valid number
+    if (!isNaN(value) && value > 0) {
+      length = value;
+    } else {
+      console.error(
+        'Error - Invalid value for --length. Please provide a valid number. '
+      );
+      process.exit(1);
+    }
+  }
+});
+
 if (arguments.includes('--help')) {
   console.log(` 
         Password Generator:
@@ -33,3 +50,23 @@ if (arguments.includes('--help')) {
 
   process.exit();
 }
+
+function generatePassword(length) {
+  const lowerChar = 'abcedfghijklmnopqrstuvwxyz';
+
+  // Keep the characters lowercase
+  let charPool = lowerChar;
+
+  let password = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charPool.length);
+    // Adds the character to the password string
+    password += charPool[randomIndex];
+  }
+
+  return password;
+}
+
+const password = generatePassword(length);
+
+console.log(`Generated Password: ${password}`);
