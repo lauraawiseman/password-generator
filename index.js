@@ -40,6 +40,7 @@ if (arguments.includes('--help')) {
 
         --numbers          Include numbers in the password 
 
+        --help             Opens this menu
         
         Example:
         
